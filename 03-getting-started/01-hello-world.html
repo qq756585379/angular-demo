@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>第一个AngularJS示例</title>
+</head>
+
+<body>
+  <div ng-app ng-init="name='zhangsan'">
+    <p>在输入框中尝试输入：</p>
+    <p>姓名：
+      <input type="text" ng-model="name">
+    </p>
+    <p>{{name}}</p>
+  </div>
+  <script src="../bower_components/angular/angular.js"></script>
+</body>
+
+</html>

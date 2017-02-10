@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>表单</title>
+</head>
+
+<body>
+  <style>
+    form {
+      transition: all linear 0.5s;
+      background: transparent;
+    }
+
+    form.ng-invalid {
+      background: red;
+    }
+  </style>
+  <form ng-app="formExample" name="myForm" ng-controller="FormController" class="my-form"> userType:
+    <input name="input" type="number" ng-model="userType" required> <span class="error" ng-show="myForm.input.$error.required">Required!</span>
+    <br> <code>userType = {{userType}}</code>
+    <br> <code>myForm.input.$valid = {{myForm.input.$valid}}</code>
+    <br> <code>myForm.input.$error = {{myForm.input.$error}}</code>
+    <br> <code>myForm.$valid = {{myForm.$valid}}</code>
+    <br> <code>myForm.$error.required = {{!!myForm.$error.required}}</code>
+    <br>
+    <pre>{{ myForm | json }}</pre>
+  </form>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script>
+    angular.module('formExample', []).controller('FormController', ['$scope', function($scope) {
+      $scope.userType = 'guest';
+    }]);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>指令的基础使用</title>
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body ng-app="MyApp">
+  <!-- 指令名称驼峰命名法需要转换为中划线分割方式 -->
+  <h2>元素指令：使用指令名称作为标签使用</h2>
+  <ice-element></ice-element>
+  <hr>
+  <h2>属性指令：为元素添加以指令名称为属性名的属性</h2>
+  <div ice-attribute></div>
+  <hr>
+  <h2>类名指令：为元素添加指令名称类名(可以使用驼峰命名法)</h2>
+  <div class="ice-class"></div>
+  <hr>
+  <h2>注释指令：在元素之前添加注释</h2>
+  <!-- directive:ice-comment -->
+  <div></div>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script>
+    /**
+     * 指令系统一共可以定义4种类型的指令
+     * 分别为：
+     *   1. restrict: 'E' // 元素（element）
+     *   2. restrict: 'A' // 属性（attribute）
+     *   3. restrict: 'C' // 类名（class）
+     *   4. restrict: 'M' // 注释（comment）
+     */
+    (function() {
+      // 定义一个模块
+      var myApp = angular.module('MyApp', []);
+
+      // 在MyApp模块下定义一个元素指令
+      myApp.directive('iceElement', [function() {
+        return {
+          // 声明指令类型为元素
+          restrict: 'E',
+          // 指定指令的渲染模板
+          template: '<button class="btn btn-primary btn-lg">元素指令</button>',
+        };
+      }]);
+
+      // 在MyApp模块下定义一个属性指令
+      myApp.directive('iceAttribute', [function() {
+        return {
+          // 声明指令类型为元素
+          restrict: 'A',
+          // 指定指令的渲染模板
+          template: '<button class="btn btn-primary btn-lg">属性指令</button>',
+        };
+      }]);
+
+      // 在MyApp模块下定义一个类名指令
+      myApp.directive('iceClass', [function() {
+        return {
+          // 声明指令类型为元素
+          restrict: 'C',
+          // 指定指令的渲染模板
+          template: '<button class="btn btn-primary btn-lg">类名指令</button>',
+        };
+      }]);
+
+      // 在MyApp模块下定义一个注释指令（只能使用replace模式）
+      myApp.directive('iceComment', [function() {
+        return {
+          // 声明指令类型为元素
+          restrict: 'M',
+          replace: true,
+          // 指定指令的渲染模板
+          template: '<button class="btn btn-primary btn-lg">属性指令</button>',
+        };
+      }]);
+      
+    })();
+  </script>
+</body>
+
+</html>

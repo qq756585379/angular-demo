@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    /* 如果引用在Body的最下面则需要hack */
+    /*angular执行完后会自动移除ng-cloak属性*/
+    .ng-cloak,
+    [ng-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+
+<body ng-app ng-cloak>
+  我喜欢的网站
+  <select ng-model="myVar">
+    <option value="wedn">blog.wedn.net</option>
+    <option value="google">www.google.com</option>
+    <option value="taobao">www.taobao.com</option>
+  </select>
+  <hr>
+  <div ng-switch="myVar">
+    <div ng-switch-when="wedn">
+      <h1>wedn.net</h1>
+      <p>wedn.net</p>
+    </div>
+    <div ng-switch-when="google">
+      <h1>Google</h1>
+      <p>欢迎访问Google</p>
+    </div>
+    <div ng-switch-when="taobao">
+      <h1>淘宝</h1>
+      <p>欢迎访问淘宝</p>
+    </div>
+    <div ng-switch-default>
+      <h1>切换</h1>
+      <p>选择不同选项显示对应的值。</p>
+    </div>
+  </div>
+
+  <hr>
+  <p> ng-switch 指令根据当前的值显示或隐藏对应部分。</p>
+
+  <script src="../bower_components/angular/angular.js"></script>
+</body>
+
+</html>

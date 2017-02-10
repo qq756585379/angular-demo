@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ng-class 指令</title>
+  <style>
+    .red{
+      color: red;
+    }
+  </style>
+</head>
+
+<body ng-app="myApp">
+  <div ng-controller="ListController">
+    <ul>
+      <li ng-repeat="item in dataset" ng-class="{red:item.startsWith('赵')}">{{item}}</li>
+    </ul>
+  </div>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script>
+    angular.module('myApp', [])
+      .controller('ListController', ['$scope', function($scope) {
+        $scope.dataset = ['张三', '李四', '李三', '王五', '赵六', '赵二', '赵小黑'];
+      }]);
+  </script>
+</body>
+
+</html>

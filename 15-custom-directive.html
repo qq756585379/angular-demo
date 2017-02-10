@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body ng-app="demoApp">
+  <!-- <itcastButton></itcastButton> -->
+  <itcast-button></itcast-button>
+  <!-- <div itcastButton></div> -->
+  <btn-primary></btn-primary>
+  <btn-danger></btn-danger>
+  
+  <script src="bower_components/angular/angular.js"></script>
+  <script>
+    var demoApp = angular.module('demoApp', []);
+
+    // 第一个参数是指令的名字，第二个参数任然应该使用一个数组，数组的最后一个元素是一个函数
+    // 定义指令的名字，应该使用驼峰命名法
+    demoApp.directive('itcastButton', [function() {
+      // 该函数应该返回一个指令对象
+      return {
+        template:'<input type="button" value="itcast" class="btn btn-lg btn-primary btn-block" />'
+      };
+    }]);
+
+    // demoApp.directive('btnPrimary', [function() {
+    //   return {
+    //     template:'<input type="button" value="itcast" class="btn btn-primary" />'
+    //   };
+    // }]);
+
+    // demoApp.directive('btnDanger', [function() {
+    //   return {
+    //     template:'<input type="button" value="itcast" class="btn btn-danger" />'
+    //   };
+    // }]);
+
+    // demoApp.directive('btnSuccess', [function() {
+    //   return {
+    //     template:'<input type="button" value="itcast" class="btn btn-success" />'
+    //   };
+    // }]);
+
+    demoApp.controller('DemoController', ['$scope', function($scope) {
+      // $scope.xxxx=xxx;
+      // $scope.do=function() {
+
+      // };
+      // $scope.$watch('',function(now,old) {
+
+      // });
+    }]);
+  </script>
+</body>
+
+</html>

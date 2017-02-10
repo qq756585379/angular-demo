@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ng-class 指令</title>
+  <style>
+    .style1{
+      height: 200px;
+      width: 200px;
+      background-color: #ABE6FF;
+      transition: background-color 1s ease;
+    }
+    .style2{
+      background-color: #FFC3C3;
+    }
+  </style>
+</head>
+
+<body>
+  <div ng-app ng-init="data={style1:true,style2:false}">
+    <!-- ng-class 指令会根据设置对象的情况决定是否添加某些class类名 -->
+    <div ng-class="{style1:data.style1,style2:data.style2}"></div>
+    <input type="button" value=" 变 " ng-click="data.style2 = !data.style2">
+  </div>
+  <script src="../bower_components/angular/angular.js"></script>
+</body>
+
+</html>

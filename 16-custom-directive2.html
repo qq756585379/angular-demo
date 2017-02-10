@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body ng-app="demoApp">
+  
+  <btn primary="true" lg="" block>itcast</btn>
+  <div breadcrumb></div>
+  <breadcrumb data=""></breadcrumb>
+  <script src="bower_components/angular/angular.js"></script>
+  <script>
+    var demoApp = angular.module('demoApp', []);
+
+
+    demoApp.directive('breadcrumb', [function() {
+      return {
+        // 指定当前指令的类型什么样的
+        // restrict: 'EA',//不设置就是默认全部
+        // // E = Element, A = Attribute, C = Class, M = Comment
+        // template: '', // 模版字符串
+        templateUrl: 'tmpls/breadcrumb.html',
+        replace: true,
+        // transclude: true,
+      };
+    }]);
+
+    demoApp.directive('btn', [function() {
+      return{
+        scope:{
+          primary:'@',
+          lg:'@',
+          block:'@',
+        },
+        template:'<button class="btn {{primary==\'true\'?\'btn-primary\':\'\'}}">button</button>'
+      }
+    }]);
+
+    demoApp.directive('btn', [function() {
+      return {
+        // 指令对象的transclude必须设置为true才可以在模版中使用ng-transclude指令
+        transclude: true,
+        replace: true, // 替换指令在HTML中绑定的元素，button替换btn
+        template: '<button class="btn btn-primary btn-lg" ng-transclude></button>'
+      };
+    }]);
+  </script>
+</body>
+
+</html>

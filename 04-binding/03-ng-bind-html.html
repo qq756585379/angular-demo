@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ng-bind-html 指令</title>
+</head>
+
+<body>
+  <div ng-app="myApp" ng-init="data='<h1>iceStone</h1>'">
+    <!-- ng-bind-html 指令将data数据绑定到当前元素的 innerHTML, 并转义 HTML 字符 -->
+    
+    <!-- 页面显示的是 iceStone -->
+    <strong ng-bind-html="data"></strong>
+  </div>
+  <script src="../bower_components/angular/angular.js"></script>
+  <!-- 要依赖这个库 -->
+  <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script>
+    angular.module('myApp', ['ngSanitize']);
+  </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ng-bind 指令</title>
+</head>
+<body ng-app ng-init="username='<h1>shit</h1>'">
+  <!-- <strong>{{username}}</strong> -->
+  <!-- ng-bind指令在绑定的值包含HTML时会转义，为了安全（跨站脚本攻击） -->
+  
+  <!-- 页面显示的是 <h1>shit</h1> -->
+  <strong ng-bind="username"></strong>
+  <script src="bower_components/angular/angular.js"></script>
+</body>
+</html>
